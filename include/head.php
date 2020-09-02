@@ -107,7 +107,7 @@
             margin: -12px 0 5px;
         }
         #footer {
-            background: #546e7a;
+            background: #ee6409;
         }
         .warna {
             color: #444;
