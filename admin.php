@@ -109,8 +109,8 @@
                 //menghitung jumlah surat masuk
                 $count3 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_disposisi"));
 
-                //menghitung jumlah klasifikasi
-                $count4 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_klasifikasi"));
+                //menghitung jumlah jenis
+                $count4 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_jenis"));
 
                 //menghitung jumlah pengguna
                 $count5 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_user"));
@@ -152,8 +152,8 @@
                 <div class="col s12 m4">
                     <div class="card deep-orange">
                         <div class="card-content">
-                            <span class="card-title white-text"><i class="material-icons md-36">class</i> Jumlah Klasifikasi Surat</span>
-                            <?php echo '<h5 class="white-text link">'.$count4.' Klasifikasi Surat</h5>'; ?>
+                            <span class="card-title white-text"><i class="material-icons md-36">class</i> Jenis Surat</span>
+                            <?php echo '<h5 class="white-text link">'.$count4.' Jenis Surat</h5>'; ?>
                         </div>
                     </div>
                 </div>

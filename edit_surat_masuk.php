@@ -48,7 +48,7 @@
                             } else {
 
                                 if(!preg_match("/^[a-zA-Z0-9., ]*$/", $nkode)){
-                                    $_SESSION['ekode'] = 'Form Kode Klasifikasi hanya boleh mengandung karakter huruf, angka, spasi, titik(.) dan koma(,)';
+                                    $_SESSION['ekode'] = 'Form Kode jenis hanya boleh mengandung karakter huruf, angka, spasi, titik(.) dan koma(,)';
                                     echo '<script language="javascript">window.history.back();</script>';
                                 } else {
 
@@ -246,7 +246,7 @@
                                         unset($_SESSION['ekode']);
                                     }
                                 ?>
-                            <label for="kode">Kode Klasifikasi</label>
+                            <label for="kode">Kode jenis</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix md-prefix">place</i>

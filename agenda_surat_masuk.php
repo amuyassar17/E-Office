@@ -147,8 +147,7 @@
                         <table class="bordered" id="tbl" width="100%">
                             <thead class="blue lighten-4">
                                 <tr>
-                                    <th width="3%">No Agenda</th>
-                                    <th width="5%">Kode</th>
+                                    <th width="3%">Jenis Surat</th>
                                     <th width="21%">Isi Ringkas</th>
                                     <th width="18%">Asal Surat</th>
                                     <th width="15%">Nomor Surat</th>

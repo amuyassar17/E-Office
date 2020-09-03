@@ -45,7 +45,7 @@
                         while(($data = fgetcsv($handle, 1000, ",")) !== FALSE){
 
                             //insert data ke dalam database
-                             $query = mysqli_query($config, "INSERT into tbl_klasifikasi(id_klasifikasi,kode,nama,uraian,id_user) values(null,'$data[1]','$data[2]','$data[3]','$id_user')");
+                             $query = mysqli_query($config, "INSERT into tbl_jenis(id_jenis,kode,nama,uraian,id_user) values(null,'$data[1]','$data[2]','$data[3]','$id_user')");
                         }
                         fclose($handle);
                         header("Location: ./admin.php?page=ref");
@@ -127,8 +127,8 @@
                     <div class="col m12">
                         <div class="card">
                             <div class="card-content">
-                                <span class="card-title black-text">Import Referensi Kode Klasifikasi Surat</span>
-                                <p class="kata">Silakan pilih file referensi kode klasifikasi berformat *.csv (file excel) lalu klik tombol <strong>"Import"</strong> untuk melakukan import file. Contoh format file csv bisa di download melalui link dibawah ini.</p><br/>';
+                                <span class="card-title black-text">Import Referensi Kode jenis Surat</span>
+                                <p class="kata">Silakan pilih file referensi kode jenis berformat *.csv (file excel) lalu klik tombol <strong>"Import"</strong> untuk melakukan import file. Contoh format file csv bisa di download melalui link dibawah ini.</p><br/>';
 
                                 // download file contoh format csv
                                 if(isset($_REQUEST['download'])){
@@ -166,7 +166,7 @@
                                             <input type="file" name="file" accept=".csv" required>
                                         </div>
                                         <div class="file-path-wrapper">
-                                            <input class="file-path validate" placeholder="Upload file csv referensi kode klasifikasi" type="text">
+                                            <input class="file-path validate" placeholder="Upload file csv referensi kode jenis" type="text">
                                          </div>
                                     </div>
                                     <button type="submit" class="btn-large blue waves-effect waves-light" name="submit">IMPORT <i class="material-icons">file_upload</i></button>

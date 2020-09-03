@@ -42,7 +42,7 @@
                                 echo '<script language="javascript">window.history.back();</script>';
                             } else {
 
-                                $cek = mysqli_query($config, "SELECT * FROM tbl_klasifikasi WHERE kode='$kode'");
+                                $cek = mysqli_query($config, "SELECT * FROM tbl_jenis WHERE kode='$kode'");
                                 $result = mysqli_num_rows($cek);
 
                                 if($result > 0){
@@ -50,7 +50,7 @@
                                     echo '<script language="javascript">window.history.back();</script>';
                                 } else {
 
-                                    $query = mysqli_query($config, "INSERT INTO tbl_klasifikasi(kode,nama,uraian,id_user) VALUES('$kode','$nama','$uraian','$id_user')");
+                                    $query = mysqli_query($config, "INSERT INTO tbl_jenis(kode,nama,uraian,id_user) VALUES('$kode','$nama','$uraian','$id_user')");
 
                                     if($query != false){
                                         $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
@@ -73,7 +73,7 @@
                         <nav class="secondary-nav">
                             <div class="nav-wrapper blue-grey darken-1">
                                 <ul class="left">
-                                    <li class="waves-effect waves-light"><a href="?page=ref&act=add" class="judul"><i class="material-icons">bookmark</i> Tambah Klasifikasi Surat</a></li>
+                                    <li class="waves-effect waves-light"><a href="?page=ref&act=add" class="judul"><i class="material-icons">bookmark</i> Jenis Surat</a></li>
                                 </ul>
                             </div>
                         </nav>

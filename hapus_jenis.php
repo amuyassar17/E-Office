@@ -6,8 +6,8 @@
         die();
     } else {
 
-        $id_klasifikasi = mysqli_real_escape_string($config, $_REQUEST['id_klasifikasi']);
-        $query = mysqli_query($config, "SELECT * FROM tbl_klasifikasi WHERE id_klasifikasi='$id_klasifikasi'");
+        $id_jenis = mysqli_real_escape_string($config, $_REQUEST['id_jenis']);
+        $query = mysqli_query($config, "SELECT * FROM tbl_jenis WHERE id_jenis='$id_jenis'");
 
     	if(mysqli_num_rows($query) > 0){
             $no = 1;
@@ -66,7 +66,7 @@
         			   		</table>
     			        </div>
                         <div class="card-action">
-        	                <a href="?page=ref&act=del&submit=yes&id_klasifikasi='.$row['id_klasifikasi'].'" class="btn-large deep-orange waves-effect waves-light white-text">HAPUS <i class="material-icons">delete</i></a>
+        	                <a href="?page=ref&act=del&submit=yes&id_jenis='.$row['id_jenis'].'" class="btn-large deep-orange waves-effect waves-light white-text">HAPUS <i class="material-icons">delete</i></a>
         	                <a href="?page=ref" class="btn-large blue waves-effect waves-light white-text">BATAL <i class="material-icons">clear</i></a>
         	            </div>
                     </div>
@@ -75,9 +75,9 @@
             <!-- Row form END -->';
 
         	if(isset($_REQUEST['submit'])){
-        		$id_klasifikasi = $_REQUEST['id_klasifikasi'];
+        		$id_jenis = $_REQUEST['id_jenis'];
 
-                $query = mysqli_query($config, "DELETE FROM tbl_klasifikasi WHERE id_klasifikasi='$id_klasifikasi'");
+                $query = mysqli_query($config, "DELETE FROM tbl_jenis WHERE id_jenis='$id_jenis'");
 
             	if($query == true){
                     $_SESSION['succDel'] = 'SUKSES! Data berhasil dihapus<br/>';
@@ -86,7 +86,7 @@
             	} else {
                     $_SESSION['errQ'] = 'ERROR! Ada masalah dengan query';
                     echo '<script language="javascript">
-                            window.location.href="./admin.php?page=ref&act=del&id_klasifikasi='.$id_klasifikasi.'";
+                            window.location.href="./admin.php?page=ref&act=del&id_jenis='.$id_jenis.'";
                           </script>';
             	}
             }

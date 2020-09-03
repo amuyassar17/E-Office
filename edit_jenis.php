@@ -8,7 +8,7 @@
 
         if(isset($_REQUEST['submit'])){
 
-                $id_klasifikasi = $_REQUEST['id_klasifikasi'];
+                $id_jenis = $_REQUEST['id_jenis'];
                 $kode = $_REQUEST['kode'];
                 $nama = $_REQUEST['nama'];
                 $uraian = $_REQUEST['uraian'];
@@ -18,7 +18,7 @@
                 if($_REQUEST['kode'] == "" || $_REQUEST['nama'] == "" || $_REQUEST['uraian'] == ""){
                     $_SESSION['errEmpty'] = 'ERROR! Semua form wajib diisi';
                     echo '<script language="javascript">
-                            window.location.href="./admin.php?page=ref&act=edit&id_klasifikasi='.$id_klasifikasi.'";
+                            window.location.href="./admin.php?page=ref&act=edit&id_jenis='.$id_jenis.'";
                           </script>';
                 } else {
 
@@ -38,7 +38,7 @@
                             echo '<script language="javascript">window.history.back();</script>';
                         } else {
 
-                            $query = mysqli_query($config, "UPDATE tbl_klasifikasi SET kode='$kode', nama='$nama', uraian='$uraian', id_user='$id_user' WHERE id_klasifikasi='$id_klasifikasi'");
+                            $query = mysqli_query($config, "UPDATE tbl_jenis SET kode='$kode', nama='$nama', uraian='$uraian', id_user='$id_user' WHERE id_jenis='$id_jenis'");
 
                             if($query != false){
                                 $_SESSION['succEdit'] = 'SUKSES! Data berhasil diupdate';
@@ -54,8 +54,8 @@
             }
         } else {
 
-            $id_klasifikasi = mysqli_real_escape_string($config, $_REQUEST['id_klasifikasi']);
-            $query = mysqli_query($config, "SELECT * FROM tbl_klasifikasi WHERE id_klasifikasi='$id_klasifikasi'");
+            $id_jenis = mysqli_real_escape_string($config, $_REQUEST['id_jenis']);
+            $query = mysqli_query($config, "SELECT * FROM tbl_jenis WHERE id_jenis='$id_jenis'");
             if(mysqli_num_rows($query) > 0){
                 $no = 1;
                 while($row = mysqli_fetch_array($query))
@@ -73,7 +73,7 @@
                             <nav class="secondary-nav">
                                 <div class="nav-wrapper blue-grey darken-1">
                                     <ul class="left">
-                                        <li class="waves-effect waves-light"><a href="#" class="judul"><i class="material-icons">edit</i> Edit Klasifikasi Surat</a></li>
+                                        <li class="waves-effect waves-light"><a href="#" class="judul"><i class="material-icons">edit</i> Edit Jenis Surat</a></li>
                                     </ul>
                                 </div>
                             </nav>
@@ -120,7 +120,7 @@
                             <!-- Row in form START -->
                             <div class="row">
                                 <div class="input-field col s3">
-                                    <input type="hidden" value="<?php echo $row['id_klasifikasi']; ?>" name="id_klasifikasi">
+                                    <input type="hidden" value="<?php echo $row['id_jenis']; ?>" name="id_jenis">
                                     <i class="material-icons prefix md-prefix">font_download</i>
                                     <input id="kd" type="text" class="validate" name="kode" maxlength="30" value="<?php echo $row['kode']; ?>" required>
                                         <?php

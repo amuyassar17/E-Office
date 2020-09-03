@@ -25,7 +25,7 @@
                                                         <td width="86%">'.$row['no_agenda'].'</td>
                                                     </tr>
                                                     <tr>
-                                                        <td width="13%">Kode Klasifikasi</td>
+                                                        <td width="13%">Kode jenis</td>
                                                         <td width="1%">:</td>
                                                         <td width="86%">'.$row['kode'].'</td>
                                                     </tr>

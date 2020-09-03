@@ -16,7 +16,7 @@ if (isset($_SERVER['HTTP_X_REQUESTED_WITH']) &&
     $kode = $_GET["query"];
 
     // Query ke database.
-    $query  = mysqli_query($conn, "SELECT * FROM tbl_klasifikasi
+    $query  = mysqli_query($conn, "SELECT * FROM tbl_jenis
         WHERE kode LIKE '%$kode%'
         OR nama LIKE '%$kode%'
         OR uraian LIKE '%$kode%'");

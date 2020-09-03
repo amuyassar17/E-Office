@@ -10,13 +10,13 @@
             $act = $_REQUEST['act'];
             switch ($act) {
                 case 'add':
-                    include "tambah_klasifikasi.php";
+                    include "tambah_jenis.php";
                     break;
                 case 'edit':
-                    include "edit_klasifikasi.php";
+                    include "edit_jenis.php";
                     break;
                 case 'del':
-                    include "hapus_klasifikasi.php";
+                    include "hapus_jenis.php";
                     break;
                 case 'imp':
                     include "upload_referensi.php";
@@ -46,7 +46,7 @@
                                 <div class="nav-wrapper blue-grey darken-1">
                                     <div class="col m7">
                                         <ul class="left">
-                                            <li class="waves-effect waves-light hide-on-small-only"><a href="?page=ref" class="judul"><i class="material-icons">class</i> Klasifikasi Surat</a></li>';
+                                            <li class="waves-effect waves-light hide-on-small-only"><a href="?page=ref" class="judul"><i class="material-icons">class</i> jenis Surat</a></li>';
                                             if($_SESSION['admin'] == 1 || $_SESSION['admin'] == 2){
                                                 echo '<li class="waves-effect waves-light"><a href="?page=ref&act=add"><i class="material-icons md-24">add_circle</i> Tambah Data</a></li>
                                                 <li class="waves-effect waves-light"><a href="?page=ref&act=imp"><i class="material-icons md-24">file_upload</i> Import Data</a></li>';
@@ -153,7 +153,7 @@
                             <tbody>';
 
                             //script untuk menampilkan data
-                            $query = mysqli_query($config, "SELECT * FROM tbl_klasifikasi WHERE uraian LIKE '%$cari%' ORDER BY id_klasifikasi DESC LIMIT 15");
+                            $query = mysqli_query($config, "SELECT * FROM tbl_jenis WHERE uraian LIKE '%$cari%' ORDER BY id_jenis DESC LIMIT 15");
                             if(mysqli_num_rows($query) > 0){
                                 while($row = mysqli_fetch_array($query)){
                                 echo '
@@ -166,9 +166,9 @@
                                         if($_SESSION['admin'] != 1 AND $_SESSION['admin'] != 2){
                                             echo '<a class="btn small blue-grey waves-effect waves-light"><i class="material-icons">error</i> NO ACTION</a>';
                                         } else {
-                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ref&act=edit&id_klasifikasi='.$row['id_klasifikasi'].'">
+                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ref&act=edit&id_jenis='.$row['id_jenis'].'">
                                                     <i class="material-icons">edit</i> EDIT</a>
-                                                <a class="btn small deep-orange waves-effect waves-light" href="?page=ref&act=del&id_klasifikasi='.$row['id_klasifikasi'].'">
+                                                <a class="btn small deep-orange waves-effect waves-light" href="?page=ref&act=del&id_jenis='.$row['id_jenis'].'">
                                                     <i class="material-icons">delete</i> DEL</a>';
                                         } echo '
                                         </td>
@@ -241,7 +241,7 @@
                                     <tbody>';
 
                                     //script untuk menampilkan data
-                                    $query = mysqli_query($config, "SELECT * FROM tbl_klasifikasi ORDER BY id_klasifikasi DESC LIMIT $curr, $limit");
+                                    $query = mysqli_query($config, "SELECT * FROM tbl_jenis ORDER BY id_jenis DESC LIMIT $curr, $limit");
                                     if(mysqli_num_rows($query) > 0){
                                         while($row = mysqli_fetch_array($query)){
                                           echo '
@@ -253,9 +253,9 @@
                                                 if($_SESSION['admin'] != 1 AND $_SESSION['admin'] != 2){
                                                     echo '<a class="btn small blue-grey waves-effect waves-light"><i class="material-icons">error</i> NO ACTION</a>';
                                                 } else {
-                                                  echo '<a class="btn small blue waves-effect waves-light" href="?page=ref&act=edit&id_klasifikasi='.$row['id_klasifikasi'].'">
+                                                  echo '<a class="btn small blue waves-effect waves-light" href="?page=ref&act=edit&id_jenis='.$row['id_jenis'].'">
                                                             <i class="material-icons">edit</i> EDIT</a>
-                                                        <a class="btn small deep-orange waves-effect waves-light" href="?page=ref&act=del&id_klasifikasi='.$row['id_klasifikasi'].'">
+                                                        <a class="btn small deep-orange waves-effect waves-light" href="?page=ref&act=del&id_jenis='.$row['id_jenis'].'">
                                                             <i class="material-icons">delete</i> DEL</a>';
                                                 } echo '
                                                 </td>
@@ -269,7 +269,7 @@
                         </div>
                         <!-- Row form END -->';
 
-                        $query = mysqli_query($config, "SELECT * FROM tbl_klasifikasi");
+                        $query = mysqli_query($config, "SELECT * FROM tbl_jenis");
                         $cdata = mysqli_num_rows($query);
                         $cpg = ceil($cdata/$limit);
 
