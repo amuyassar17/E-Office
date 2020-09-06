@@ -10,13 +10,13 @@ if (empty($_SESSION['admin'])) {
 
         //validasi form kosong
         if (
-            $_REQUEST['jenis_surat'] == "" || $_REQUEST['no_surat'] == "" || $_REQUEST['asal_surat'] == "" || $_REQUEST['isi'] == ""
+            $_REQUEST['no_agenda'] == "" ||$_REQUEST['jenis_surat'] == "" || $_REQUEST['no_surat'] == "" || $_REQUEST['asal_surat'] == "" || $_REQUEST['isi'] == ""
             || $_REQUEST['indeks'] == "" || $_REQUEST['tgl_surat'] == ""  
         ) {
             $_SESSION['errEmpty'] = 'ERROR! Semua form wajib diisi';
             echo '<script language="javascript">window.history.back();</script>';
         } else {
-
+            $no_agenda = $_REQUEST['no_agenda'];
             $jenis_surat = $_REQUEST['jenis_surat'];
             $no_surat = $_REQUEST['no_surat'];
             $asal_surat = $_REQUEST['asal_surat'];
@@ -35,6 +35,10 @@ if (empty($_SESSION['admin'])) {
                     $_SESSION['no_surat'] = 'Form No Surat hanya boleh mengandung karakter huruf, angka, spasi, titik(.), minus(-) dan garis miring(/)';
                     echo '<script language="javascript">window.history.back();</script>';
                 } else {
+                    if(!preg_match("/^[0-9]*$/", $no_agenda)){
+                        $_SESSION['no_agenda'] = 'Form Nomor Agenda harus diisi angka!';
+                        echo '<script language="javascript">window.history.back();</script>';
+                    }else{
 
                     if (!preg_match("/^[a-zA-Z0-9.,() \/ -]*$/", $asal_surat)) {
                         $_SESSION['asal_surat'] = 'Form Asal Surat hanya boleh mengandung karakter huruf, angka, spasi, titik(.), koma(,), minus(-),kurung() dan garis miring(/)';
@@ -88,8 +92,8 @@ if (empty($_SESSION['admin'])) {
                                                             move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $nfile);
 
                                                             $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat,
-                                                                    tgl_diterima,file,keterangan,id_user)
-                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'$nfile','$keterangan','$id_user')");
+                                                                    tgl_diterima,file,keterangan,id_user, jenis_surat)
+                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'$nfile','$keterangan','$id_user','$jenis_surat')");
 
                                                             if ($query == true) {
                                                                 $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
@@ -110,8 +114,8 @@ if (empty($_SESSION['admin'])) {
                                                 } else {
 
                                                     //jika form file kosong akan mengeksekusi script dibawah ini
-                                                    $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat, tgl_diterima,file,keterangan,id_user)
-                                                            VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'','$keterangan','$id_user')");
+                                                    $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat, tgl_diterima,file,keterangan,id_user,jenis_surat)
+                                                            VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'','$keterangan','$id_user','$jenis_surat')");
 
                                                     if ($query == true) {
                                                         $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
@@ -129,7 +133,7 @@ if (empty($_SESSION['admin'])) {
                             }
                         }
                     }
-                
+                } 
             
         }
     } else { ?>
@@ -186,6 +190,34 @@ if (empty($_SESSION['admin'])) {
             <form class="col s12" method="POST" action="?page=tsm&act=add" enctype="multipart/form-data">
 
                 <!-- Row in form START -->
+                <div class="input-field col s6">
+                            <i class="material-icons prefix md-prefix">looks_one</i>
+                            <?php
+                            echo '<input id="no_agenda" type="number" class="validate" name="no_agenda" value="';
+                                $sql = mysqli_query($config, "SELECT no_agenda FROM tbl_surat_masuk");
+                                $no_agenda = "1";
+                                if (mysqli_num_rows($sql) == 0){
+                                    echo $no_agenda;
+                                }
+
+                                $result = mysqli_num_rows($sql);
+                                $counter = 0;
+                                while(list($no_agenda) = mysqli_fetch_array($sql)){
+                                    if (++$counter == $result) {
+                                        $no_agenda++;
+                                        echo $no_agenda;
+                                    }
+                                }
+                                echo '" required>';
+
+                                if(isset($_SESSION['no_agenda'])){
+                                    $no_agenda = $_SESSION['no_agenda'];
+                                    echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$no_agenda.'</div>';
+                                    unset($_SESSION['no_agenda']);
+                                }
+                            ?>
+                            <label for="no_agenda">Nomor Agenda</label>
+                        </div>
                 
         <div class="input-field col s6">
             <i class="material-icons prefix md-prefix">place</i>

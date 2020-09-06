@@ -140,7 +140,7 @@
                         <table class="bordered" id="tbl">
                             <thead class="blue lighten-4" id="head">
                                 <tr>
-                                    <th width="10%">Jenis Surat</th>
+                                    <th width="10%">No. Agenda<br/>Jenis Surat</th>
                                     <th width="30%">Isi Ringkas<br/> File</th>
                                     <th width="24%">Asal Surat</th>
                                     <th width="18%">No. Surat<br/>Tgl Surat</th>
@@ -156,7 +156,7 @@
                                 while($row = mysqli_fetch_array($query)){
                                   echo '
                                   <tr>
-                                    <td>'.$row['jenis_surat'].'<br/><hr/>'.$row['kode'].'</td>
+                                    <td>'.$row['no_agenda'].'<br/><hr/>'.$row['jenis_surat'].'</td>
                                     <td>'.substr($row['isi'],0,200).'<br/><br/><strong>File :</strong>';
 
                                     if(!empty($row['file'])){
@@ -199,7 +199,7 @@
                             <table class="bordered" id="tbl">
                                 <thead class="blue lighten-4" id="head">
                                     <tr>
-                                        <th width="10%">Jenis Surat</th>
+                                        <th width="10%">No. Agenda<br/> Jenis Surat</th>
                                         <th width="30%">Isi Ringkas<br/> File</th>
                                         <th width="24%">Asal Surat</th>
                                         <th width="18%">No. Surat<br/>Tgl Surat</th>
@@ -260,7 +260,7 @@
                                     while($row = mysqli_fetch_array($query)){
                                       echo '
                                       <tr>
-                                        <td>'.$row['jenis_surat'].'<br/><hr/>'.$row['kode'].'</td>
+                                        <td>'.$row['no_agenda'].'<br/><hr/>'.$row['jenis_surat'].'</td>
                                         <td>'.substr($row['isi'],0,200).'<br/><br/><strong>File :</strong>';
 
                                         if(!empty($row['file'])){
