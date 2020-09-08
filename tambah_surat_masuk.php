@@ -91,16 +91,16 @@ if (empty($_SESSION['admin'])) {
 
                                                             move_uploaded_file($_FILES['file']['tmp_name'], $target_dir . $nfile);
 
-                                                            $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat,
-                                                                    tgl_diterima,file,keterangan,id_user, jenis_surat)
-                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'$nfile','$keterangan','$id_user','$jenis_surat')");
+                                                            $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,indeks,tgl_surat,
+                                                                    tgl_diterima,file,id_user, jenis_surat)
+                                                                        VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$indeks','$tgl_surat',NOW(),'$nfile','$id_user','$jenis_surat')");
 
                                                             if ($query == true) {
                                                                 $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
                                                                 header("Location: ./admin.php?page=tsm");
                                                                 die();
                                                             } else {
-                                                                $_SESSION['errQ'] = 'ERROR! Ada masalah dengan query';
+                                                                $_SESSION['errQ'] = 'ERROR! Ada masalah dengan queryyyyyyyyy';
                                                                 echo '<script language="javascript">window.history.back();</script>';
                                                             }
                                                         } else {
@@ -114,15 +114,15 @@ if (empty($_SESSION['admin'])) {
                                                 } else {
 
                                                     //jika form file kosong akan mengeksekusi script dibawah ini
-                                                    $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat, tgl_diterima,file,keterangan,id_user,jenis_surat)
-                                                            VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'','$keterangan','$id_user','$jenis_surat')");
+                                                    $query = mysqli_query($config, "INSERT INTO tbl_surat_masuk(no_agenda,no_surat,asal_surat,isi,kode,indeks,tgl_surat, tgl_diterima,file,id_user,jenis_surat)
+                                                            VALUES('$no_agenda','$no_surat','$asal_surat','$isi','$nkode','$indeks','$tgl_surat',NOW(),'','$id_user','$jenis_surat')");
 
                                                     if ($query == true) {
                                                         $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
                                                         header("Location: ./admin.php?page=tsm");
                                                         die();
                                                     } else {
-                                                        $_SESSION['errQ'] = 'ERROR! Ada masalah dengan query';
+                                                        $_SESSION['errQ'] = 'ERROR! Ada masalah dengan queryyyyyyyyyyyyyyyyy';
                                                         echo '<script language="javascript">window.history.back();</script>';
                                                     }
                                                 }
@@ -133,7 +133,7 @@ if (empty($_SESSION['admin'])) {
                             }
                         }
                     }
-                } 
+            } 
             
         }
     } else { ?>

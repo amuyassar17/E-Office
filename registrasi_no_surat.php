@@ -10,13 +10,13 @@ if (empty($_SESSION['admin'])) {
 
         //validasi form kosong
         if (
-            $_REQUEST['jenis_surat'] == "" || $_REQUEST['no_surat'] $_REQUEST['klasifikasi'] == "" || $_REQUEST['klasifikasi1'] == "" || $_REQUEST['tgl_ajukan'] == ""   
+            $_REQUEST['jenis_surat'] == "" || $_REQUEST['no_surat'] == "" || $_REQUEST['klasifikasi'] == "" || $_REQUEST['klasifikasi1'] == "" || $_REQUEST['tgl_ajukan'] == ""   
         ) {
             $_SESSION['errEmpty'] = 'ERROR! Semua form wajib diisi';
             echo '<script language="javascript">window.history.back();</script>';
         } else {
             $jenis_surat = $_REQUEST['jenis_surat'];
-            $no_surat = $_REQUEST['no_surat']
+            $no_surat = $_REQUEST['no_surat'];
             $klasifikasi = $_REQUEST['klasifikasi'];
             $klasifikasi1 = $_REQUEST['klasifikasi1'];
             $tgl_ajukan = $_REQUEST['tgl_ajukan'];
@@ -54,7 +54,7 @@ if (empty($_SESSION['admin'])) {
                                             if ($result > 0) {
                                                 $_SESSION['errDup'] = 'Nomor Surat sudah terpakai, gunakan yang lain!';
                                                 echo '<script language="javascript">window.history.back();</script>';
-                                            } 
+                                             
                                                             $query = mysqli_query($config, "INSERT INTO tbl_nomor_surat(jenis_surat,no_surat,klasifikasi,klasifikasi1,tgl_ajukan,id)
                                                                     VALUES('$jenis_surat','$no_surat','$klasifikasi','$klasifikasi1','$tgl_ajukan','$id')");
 
@@ -83,13 +83,13 @@ if (empty($_SESSION['admin'])) {
                                                 }
                                             }
                                         }
-                                    }
-                                }
-                            
+                                    
+                                
+                                            
                         
-                    
-                
-            
+                    }
+                }
+            }   
         }
     } else { ?>
 
@@ -100,7 +100,7 @@ if (empty($_SESSION['admin'])) {
                 <nav class="secondary-nav">
                     <div class="nav-wrapper blue-grey darken-1">
                         <ul class="left">
-                            <li class="waves-effect waves-light"><a href="?page=tsm&act=add" class="judul"><i class="material-icons">mail</i> Tambah Data Surat Masuk</a></li>
+                            <li class="waves-effect waves-light"><a href="?page=tsm&act=add" class="judul"><i class="material-icons">mail</i>  Registrasi Nomor Surat</a></li>
                         </ul>
                     </div>
                 </nav>
