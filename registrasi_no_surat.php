@@ -10,7 +10,7 @@ if (empty($_SESSION['admin'])) {
 
         //validasi form kosong
         if (
-            $_REQUEST['no_surat'] == "" || $_REQUEST['klasifikasi'] == "" || $_REQUEST['klassifikasi1'] == "" || $_REQUEST['tgl_surat'] == ""  || $_REQUEST['jenis_surat'] == ""
+            $_REQUEST['no_surat'] == "" || $_REQUEST['klasifikasi'] == "" || $_REQUEST['klasifikasi1'] == "" || $_REQUEST['tgl_surat'] == ""  || $_REQUEST['jenis_surat'] == ""
         ) {
             $_SESSION['errEmpty'] = 'ERROR! Semua form wajib diisi brooooo';
             echo '<script language="javascript">window.history.back();</script>';
@@ -18,9 +18,10 @@ if (empty($_SESSION['admin'])) {
 
             $no_surat = $_REQUEST['no_surat'];
             $klasifikasi = $_REQUEST['klasifikasi'];
-            $klassifikasi1 = $_REQUEST['klassifikasi1'];
+            $klasifikasi1 = $_REQUEST['klasifikasi1'];
             $tgl_surat = $_REQUEST['tgl_surat'];
             $jenis_surat = $_REQUEST['jenis_surat'];
+            $id_user = $_SESSION['id_user'];
 
 
             //validasi input data
@@ -34,8 +35,8 @@ if (empty($_SESSION['admin'])) {
                     echo '<script language="javascript">window.history.back();</script>';
                 } else {
 
-                    if (!preg_match("/^[a-zA-Z0-9.,_()%&@\/\r\n -]*$/", $klassifikasi1)) {
-                        $_SESSION['klassifikasi1'] = 'Form Isi Ringkas hanya boleh mengandung karakter huruf, angka, spasi, titik(.), koma(,), minus(-), garis miring(/), kurung(), underscore(_), dan(&) persen(%) dan at(@)';
+                    if (!preg_match("/^[a-zA-Z0-9.,_()%&@\/\r\n -]*$/", $klasifikasi1)) {
+                        $_SESSION['klasifikasi1'] = 'Form Isi Ringkas hanya boleh mengandung karakter huruf, angka, spasi, titik(.), koma(,), minus(-), garis miring(/), kurung(), underscore(_), dan(&) persen(%) dan at(@)';
                         echo '<script language="javascript">window.history.back();</script>';
                     } else {
 
@@ -60,15 +61,15 @@ if (empty($_SESSION['admin'])) {
                                 } else {
 
 
-                                    $query = mysqli_query($config, "INSERT INTO tbl_nomor_surat(no_surat,klasifikasi,klassifikasi1,tgl_surat,jenis_surat)
-                                                VALUES('$no_surat','$klasifikasi','$klassifikasi1','$tgl_surat','$jenis_surat')");
+                                    $query = mysqli_query($config, "INSERT INTO tbl_nomor_surat(no_surat,klasifikasi,klasifikasi1,tgl_surat,id_user,jenis_surat)
+                                                VALUES('$no_surat','$klasifikasi','$klasifikasi1','$tgl_surat','$id_user','$jenis_surat')");
 
                                     if ($query == true) {
                                         $_SESSION['succAdd'] = 'SUKSES! Data berhasil ditambahkan';
-                                        header("Location: ./admin.php?page=rns");
+                                        header("Location: ./admin.php?page=ns");
                                         die();
                                     } else {
-                                        $_SESSION['errQ'] = 'ERROR! Ada masalah dengan queryyyyyyyyyyyyyyyyy';
+                                        $_SESSION['errQ'] = 'ERROR! Ada masalah dengan query';
                                         echo '<script language="javascript">window.history.back();</script>';
                                     }
                                 }
@@ -180,13 +181,13 @@ if (empty($_SESSION['admin'])) {
                     </div>
 
                     <div class="input-field col s6">
-                        <i class="material-icons prefix md-prefix">klassifikasi1</i>
-                        <textarea id="klassifikasi1" class="materialize-textarea validate" name="klassifikasi1" required></textarea>
+                        <i class="material-icons prefix md-prefix">klasifikasi1</i>
+                        <textarea id="klasifikasi1" class="materialize-textarea validate" name="klasifikasi1" required></textarea>
                         <?php
-                        if (isset($_SESSION['klassifikasi1'])) {
-                            $klasifikasi = $_SESSION['klassifikasi1'];
-                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">' . $klassifikasi1 . '</div>';
-                            unset($_SESSION['klassifikasi1']);
+                        if (isset($_SESSION['klasifikasi1'])) {
+                            $klasifikasi = $_SESSION['klasifikasi1'];
+                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">' . $klasifikasi1 . '</div>';
+                            unset($_SESSION['klasifikasi1']);
                         }
                         ?>
                         <label for="isi">Klasifikasi 1</label>

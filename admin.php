@@ -74,6 +74,9 @@ if (empty($_SESSION['admin'])) {
                         case 'gsk':
                             include "galeri_sk.php";
                             break;
+                        case 'ns':
+                            include "no_surat.php";
+                            break;
                     }
                 } else {
                 ?>
@@ -163,7 +166,7 @@ if (empty($_SESSION['admin'])) {
                             </div>
                         </a>
 
-                        <a href="?page=rns">
+                        <a href="?page=ns">
                             <div class="col s12 m4">
                                 <div class="card deep-orange">
                                     <div class="card-content">
