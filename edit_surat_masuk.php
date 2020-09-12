@@ -160,8 +160,8 @@
     } else {
 
         $id_surat = mysqli_real_escape_string($config, $_REQUEST['id_surat']);
-        $query = mysqli_query($config, "SELECT id_surat, no_agenda, no_surat, asal_surat, isi, kode, indeks, tgl_surat, file, keterangan, id_user FROM tbl_surat_masuk WHERE id_surat='$id_surat'");
-        list($id_surat, $no_agenda, $no_surat, $asal_surat, $isi, $kode, $indeks, $tgl_surat, $file, $keterangan, $id_user) = mysqli_fetch_array($query);
+        $query = mysqli_query($config, "SELECT id_surat, no_agenda, no_surat, asal_surat, isi, indeks, tgl_surat, file, id_user FROM tbl_surat_masuk WHERE id_surat='$id_surat'");
+        list($id_surat, $no_agenda, $no_surat, $asal_surat, $isi, $indeks, $tgl_surat, $file, $id_user) = mysqli_fetch_array($query);
 
         if($_SESSION['id_user'] != $id_user AND $_SESSION['id_user'] != 1){
             echo '<script language="javascript">
@@ -236,18 +236,7 @@
                                 ?>
                             <label for="no_agenda">Nomor Agenda</label>
                         </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix md-prefix">bookmark</i>
-                            <input id="kode" type="text" class="validate" name="kode" value="<?php echo $kode ;?>" required>
-                                <?php
-                                    if(isset($_SESSION['ekode'])){
-                                        $ekode = $_SESSION['ekode'];
-                                        echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$ekode.'</div>';
-                                        unset($_SESSION['ekode']);
-                                    }
-                                ?>
-                            <label for="kode">Kode jenis</label>
-                        </div>
+                        
                         <div class="input-field col s6">
                             <i class="material-icons prefix md-prefix">place</i>
                             <input id="asal_surat" type="text" class="validate" name="asal_surat" value="<?php echo $asal_surat ;?>" required>
@@ -308,18 +297,7 @@
                                 ?>
                             <label for="isi">Isi Ringkas</label>
                         </div>
-                        <div class="input-field col s6">
-                            <i class="material-icons prefix md-prefix">featured_play_list</i>
-                            <input id="keterangan" type="text" class="validate" name="keterangan" value="<?php echo $keterangan ;?>" required>
-                                <?php
-                                    if(isset($_SESSION['eketerangan'])){
-                                        $eketerangan = $_SESSION['eketerangan'];
-                                        echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$eketerangan.'</div>';
-                                        unset($_SESSION['eketerangan']);
-                                    }
-                                ?>
-                            <label for="keterangan">Keterangan</label>
-                        </div>
+                        
                         <div class="input-field col s6">
                             <div class="file-field input-field">
                                 <div class="btn light-green darken-1">

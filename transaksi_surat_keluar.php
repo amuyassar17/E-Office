@@ -134,10 +134,10 @@
                             <table class="bordered" id="tbl">
                                 <thead class="blue lighten-4" id="head">
                                     <tr>
-                                        <th width="10%">No. Agenda<br/>Kode</th>
+                                        <th width="10%">No. Agenda<br/>No. Surat</th>
                                         <th width="31%">Isi Ringkas<br/> File</th>
                                         <th width="24%">Tujuan</th>
-                                        <th width="19%">No. Surat<br/>Tgl Surat</th>
+                                        <th width="19%">Tgl Surat</th>
                                         <th width="16%">Tindakan <span class="right"><i class="material-icons" style="color: #333;">settings</i></span></th>
                                     </tr>
                                 </thead>
@@ -150,7 +150,7 @@
                                     while($row = mysqli_fetch_array($query)){
                                       echo '
                                       <tr>
-                                        <td>'.$row['no_agenda'].'<br/><hr/>'.$row['kode'].'</td>
+                                        <td>'.$row['no_agenda'].'<br/>'.$row['no_surat'].'</td>
                                         <td>'.substr($row['isi'],0,200).'<br/><br/><strong>File :</strong>';
 
                                         if(!empty($row['file'])){
@@ -158,7 +158,7 @@
                                         } else {
                                             echo ' <em>Tidak ada file yang diupload</em>';
                                         } echo '</td>
-                                        <td>'.$row['tujuan'].'</td><td>'.$row['no_surat'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
+                                        <td>'.$row['tujuan'].'</td><td>'.indoDate($row['tgl_surat']).'</td>
                                         <td>';
 
                                         if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
@@ -187,10 +187,10 @@
                         <table class="bordered" id="tbl">
                             <thead class="blue lighten-4" id="head">
                                 <tr>
-                                    <th width="10%">No. Agenda<br/>Kode</th>
+                                    <th width="10%">No. Agenda<br/>No. Surat</th>
                                     <th width="31%">Isi Ringkas<br/> File</th>
                                     <th width="24%">Tujuan</th>
-                                    <th width="19%">No. Surat<br/>Tgl Surat</th>
+                                    <th width="19%">Tgl Surat</th>
                                     <th width="16%">Tindakan <span class="right tooltipped" data-position="left" data-tooltip="Atur jumlah data yang ditampilkan"><a class="modal-trigger" href="#modal"><i class="material-icons" style="color: #333;">settings</i></a></span></th>
 
                                         <div id="modal" class="modal">
@@ -249,7 +249,7 @@
                                 while($row = mysqli_fetch_array($query)){
                                   echo '
                                   <tr>
-                                    <td>'.$row['no_agenda'].'<br/><hr/>'.$row['kode'].'</td>
+                                    <td>'.$row['no_agenda'].'<br/><hr/>'.$row['no_surat'].'</td>
                                     <td>'.substr($row['isi'],0,200).'<br/><br/><strong>File :</strong>';
 
                                     if(!empty($row['file'])){
@@ -257,7 +257,7 @@
                                     } else {
                                         echo ' <em>Tidak ada file yang diupload</em>';
                                     } echo '</td>
-                                    <td>'.$row['tujuan'].'</td><td>'.$row['no_surat'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
+                                    <td>'.$row['tujuan'].'</td><td>'.indoDate($row['tgl_surat']).'</td>
                                     <td>';
 
                                     if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
