@@ -24,7 +24,16 @@
                                                         <td width="1%">:</td>
                                                         <td width="86%">'.$row['no_agenda'].'</td>
                                                     </tr>
-                                                    
+                                                    <tr>
+                                                        <td width="13%">No. Surat</td>
+                                                        <td width="1%">:</td>
+                                                        <td width="86%">'.$row['no_surat'].'</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td width="13%">Jenis Surat</td>
+                                                        <td width="1%">:</td>
+                                                        <td width="86%">'.$row['jenis_surat'].'</td>
+                                                    </tr>
                                                     <tr>
                                                     <td width="13%">Isi Ringkas</td>
                                                     <td width="1%">:</td>
@@ -35,11 +44,7 @@
                                                         <td width="1%">:</td>
                                                         <td width="86%">'.$row['tujuan'].'</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td width="13%">No. Surat</td>
-                                                        <td width="1%">:</td>
-                                                        <td width="86%">'.$row['no_surat'].'</td>
-                                                    </tr>
+                                                    
                                                     <tr>
                                                         <td width="13%">Tanggal Surat</td>
                                                         <td width="1%">:</td><td width="86%">'.indoDate($row['tgl_surat']).'</td>

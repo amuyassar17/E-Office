@@ -147,7 +147,7 @@
                         <table class="bordered" id="tbl" width="100%">
                             <thead class="blue lighten-4">
                                 <tr>
-                                    <th width="3%">Jenis Surat</th>
+                                    <th width="3%">Nomor Agenda</th>
                                     <th width="21%">Isi Ringkas</th>
                                     <th width="18%">Asal Surat</th>
                                     <th width="15%">Nomor Surat</th>
@@ -155,7 +155,7 @@
                                     <th width="8%">Tanggal Diterima</th>
                                     <th width="10%">Penerima</th>
                                     <th width="10%">Paraf</th>
-                                    <th width="10%">Keterangan</th>
+                                    <th width="10%">Jenis Surat</th>
                                 </tr>
                             </thead>
 
@@ -167,7 +167,6 @@
                                  echo '
                                  <tr>
                                         <td>'.$row['no_agenda'].'</td>
-                                        <td>'.$row['kode'].'</td>
                                         <td>'.$row['isi'].'</td>
                                         <td>'.$row['asal_surat'].'</td>
                                         <td>'.$row['no_surat'].'</td>
@@ -183,7 +182,7 @@
 
                                         echo ''.$row['id_user'].'</td>
                                         <td></td>
-                                        <td>'.$row['keterangan'].'';
+                                        <td>'.$row['jenis_surat'].'';
                                   echo '</td>
                                 </tr>';
                                 }

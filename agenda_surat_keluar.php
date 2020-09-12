@@ -148,13 +148,12 @@
                             <thead class="blue lighten-4">
                                 <tr>
                                     <th width="3%">No</th>
-                                    <th width="5%">Kode</th>
                                     <th width="21%">Isi Ringkas</th>
                                     <th width="18%">Tujuan Surat</th>
                                     <th width="15%">Nomor Surat</th>
                                     <th width="10%">Tanggal<br/> Surat</th>
                                     <th width="12%">Pengelola</th>
-                                    <th width="10%">Keterangan</th>
+                                    <th width="10%">Jenis Surat</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -165,7 +164,6 @@
                                  echo '
                                     <tr>
                                         <td>'.$row['no_agenda'].'</td>
-                                        <td>'.$row['kode'].'</td>
                                         <td>'.$row['isi'].'</td>
                                         <td>'.$row['tujuan'].'</td>
                                         <td>'.$row['no_surat'].'</td>
@@ -182,7 +180,7 @@
                                         }
 
                                         echo ''.$row['id_user'].'</td>
-                                        <td>'.$row['keterangan'].'';
+                                        <td>'.$row['jenis_surat'].'';
                                  echo ' </td>
                                 </tr>';
                                     }

@@ -45,7 +45,7 @@
                         while(($data = fgetcsv($handle, 1000, ",")) !== FALSE){
 
                             //insert data ke dalam database
-                             $query = mysqli_query($config, "INSERT into tbl_jenis(id_jenis,kode,nama,uraian,id_user) values(null,'$data[1]','$data[2]','$data[3]','$id_user')");
+                             $query = mysqli_query($config, "INSERT into tbl_jenis(id_jenis,kode,nama,uraian,id_user) values(null,'$data[0]','$data[1]','$data[2]','$id_user')");
                         }
                         fclose($handle);
                         header("Location: ./admin.php?page=ref");

@@ -189,7 +189,7 @@
                                 <tr>
                                     <th width="10%">No. Agenda<br/>No. Surat</th>
                                     <th width="31%">Isi Ringkas<br/> File</th>
-                                    <th width="24%">Tujuan</th>
+                                    <th width="24%">Jenis Surat<br/>Tujuan</th>
                                     <th width="19%">Tgl Surat</th>
                                     <th width="16%">Tindakan <span class="right tooltipped" data-position="left" data-tooltip="Atur jumlah data yang ditampilkan"><a class="modal-trigger" href="#modal"><i class="material-icons" style="color: #333;">settings</i></a></span></th>
 
@@ -257,7 +257,8 @@
                                     } else {
                                         echo ' <em>Tidak ada file yang diupload</em>';
                                     } echo '</td>
-                                    <td>'.$row['tujuan'].'</td><td>'.indoDate($row['tgl_surat']).'</td>
+                                    <td>'.$row['jenis_surat'].'<br/><hr/>'.$row['tujuan'].'</td>
+                                    <td>'.indoDate($row['tgl_surat']).'</td>
                                     <td>';
 
                                     if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
