@@ -5276,9 +5276,9 @@ textarea.materialize-textarea {
 	border-bottom: 1px solid #9e9e9e;
 	outline: none;
 	height: 3rem;
-	width: 100%;
+	width: 97%;
 	font-size: 1rem;
-	margin: 0 0 15px;
+	margin: 0 20px 15px;
 	padding: 0;
 	-webkit-box-shadow: none;
 	-moz-box-shadow: none;
@@ -5643,9 +5643,9 @@ input[type=checkbox]:not(:disabled)~.lever:active:after {
 	outline: none;
 	height: 3rem;
 	line-height: 3rem;
-	width: 100%;
+	width: 97%;
 	font-size: 1.2rem;
-	margin: 0 0 15px;
+	margin: 0 30px 15px;
 	padding: 0;
 	display: block
 }

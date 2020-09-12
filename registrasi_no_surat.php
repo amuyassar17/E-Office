@@ -136,23 +136,23 @@ if (empty($_SESSION['admin'])) {
                 <div class="row">
 
 
-                         <div class="input-field col s6">
-                            <i class="material-icons prefix md-prefix">looks_two</i>
-                            <input id="no_surat" type="text" class="validate" name="no_surat" required>
-                                <?php
-                                    if(isset($_SESSION['no_suratr'])){
-                                        $no_suratr = $_SESSION['no_suratr'];
-                                        echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$no_suratr.'</div>';
-                                        unset($_SESSION['no_suratr']);
-                                    }
-                                    if(isset($_SESSION['errDup'])){
-                                        $errDup = $_SESSION['errDup'];
-                                        echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$errDup.'</div>';
-                                        unset($_SESSION['errDup']);
-                                    }
-                                ?>
-                            <label for="no_surat">Nomor Surat</label>
-                        </div>
+                    <div class="input-field col s6">
+                        <i class="material-icons prefix md-prefix">looks_two</i>
+                        <input id="no_surat" type="text" class="validate" name="no_surat" required>
+                        <?php
+                        if (isset($_SESSION['no_suratr'])) {
+                            $no_suratr = $_SESSION['no_suratr'];
+                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">' . $no_suratr . '</div>';
+                            unset($_SESSION['no_suratr']);
+                        }
+                        if (isset($_SESSION['errDup'])) {
+                            $errDup = $_SESSION['errDup'];
+                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">' . $errDup . '</div>';
+                            unset($_SESSION['errDup']);
+                        }
+                        ?>
+                        <label for="no_surat">Nomor Surat</label>
+                    </div>
 
                     <div class="input-field col s6">
                         <i class="material-icons prefix md-prefix">date_range</i>
@@ -168,8 +168,15 @@ if (empty($_SESSION['admin'])) {
                     </div>
 
                     <div class="input-field col s6">
-                        <i class="material-icons prefix md-prefix">klasifikasi</i>
-                        <textarea id="klasifikasi" class="materialize-textarea validate" name="klasifikasi" required></textarea>
+                    <i class="material-icons prefix md-prefix">date_range</i>
+                    <div class="input-field col s12">
+                            <select name="klasifikasi" id="klasifikasi" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="Option 1">Option 1</option>
+                                <option value="Option 2">Option 2</option>
+                                <option value="Option 3">Option 3</option>
+                            </select>
+                    </div>
                         <?php
                         if (isset($_SESSION['klasifikasi'])) {
                             $klasifikasi = $_SESSION['klasifikasi'];
@@ -181,8 +188,16 @@ if (empty($_SESSION['admin'])) {
                     </div>
 
                     <div class="input-field col s6">
-                        <i class="material-icons prefix md-prefix">klasifikasi1</i>
-                        <textarea id="klasifikasi1" class="materialize-textarea validate" name="klasifikasi1" required></textarea>
+
+                        <div class="input-field col s12">
+                            <select name="klasifikasi1" id="klasifikasi1" required>
+                                <option value="" disabled selected>Choose your option</option>
+                                <option value="Option 1">Option 1</option>
+                                <option value="Option 2">Option 2</option>
+                                <option value="Option 3">Option 3</option>
+                            </select>
+
+                        </div>
                         <?php
                         if (isset($_SESSION['klasifikasi1'])) {
                             $klasifikasi = $_SESSION['klasifikasi1'];
@@ -196,7 +211,7 @@ if (empty($_SESSION['admin'])) {
                     <div class="input-field col s6">
                         <i class="material-icons prefix md-prefix">low_priority</i><label>Jenis Surat</label><br />
                         <div class="input-field col s11 right">
-                            <select class="browser-default validate" name="jenis_surat" id="jenis_surat" required>
+                            <select name="jenis_surat" id="jenis_surat" required>
                                 <?php
                                 $sql = mysqli_query($config, "SELECT nama FROM tbl_jenis");
                                 while ($data = mysqli_fetch_array($sql))

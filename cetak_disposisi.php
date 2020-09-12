@@ -195,7 +195,7 @@
                             <tr>
                                 <td id="right" width="18%"><strong>Indeks Berkas</strong></td>
                                 <td id="left" style="border-right: none;" width="57%">: '.$row['indeks'].'</td>
-                                <td id="left" width="25"><strong>Kode</strong> : '.$row['kode'].'</td>
+                                
                             </tr>
                             <tr><td id="right"><strong>Tanggal Surat</strong></td>
                                 <td id="left" colspan="2">: '.indoDate($row['tgl_surat']).'</td>
@@ -264,7 +264,7 @@
                 if(!empty($nip)){
                     echo '<p>NIP. '.$nip.'</p>';
                 } else {
-                    echo '<p>NIP. -</p>';
+                    echo '<p>NIP. 60200114065-</p>';
                 }
                 echo '
             </div>

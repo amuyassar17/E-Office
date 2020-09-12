@@ -121,7 +121,11 @@ if (empty($_SESSION['admin'])) {
 
                         //menghitung jumlah pengguna
                         $count5 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_user"));
+
+                        $count6 = mysqli_num_rows(mysqli_query($config, "SELECT * FROM tbl_nomor_surat"));
                         ?>
+
+                        
 
                         <!-- Info Statistic START -->
                         <a href="?page=tsm">
@@ -168,9 +172,9 @@ if (empty($_SESSION['admin'])) {
 
                         <a href="?page=ns">
                             <div class="col s12 m4">
-                                <div class="card deep-orange">
+                                <div class="card purple darken-2">
                                     <div class="card-content">
-                                        <span class="card-title white-text"><i class="material-icons md-36">class</i> Registrasi Nomor Surat</span>
+                                        <span class="card-title white-text"><i class="material-icons md-36">collections_bookmark</i> Registrasi Nomor Surat</span>
                                         <?php echo '<h5 class="white-text link">' . $count4 . ' Registrasi Nomor Surat</h5>'; ?>
                                     </div>
                                 </div>
@@ -184,7 +188,7 @@ if (empty($_SESSION['admin'])) {
                                     <div class="card blue accent-2">
                                         <div class="card-content">
                                             <span class="card-title white-text"><i class="material-icons md-36">people</i> Jumlah Pengguna</span>
-                                            <?php echo '<h5 class="white-text link">' . $count5 . ' Pengguna</h5>'; ?>
+                                            <?php echo '<h5 class="white-text link">' . $count6 . ' Pengguna</h5>'; ?>
                                         </div>
                                     </div>
                                 </div>
