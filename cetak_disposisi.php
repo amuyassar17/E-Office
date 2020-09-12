@@ -195,7 +195,7 @@
                             <tr>
                                 <td id="right" width="18%"><strong>Indeks Berkas</strong></td>
                                 <td id="left" style="border-right: none;" width="57%">: '.$row['indeks'].'</td>
-                                
+                                <td id="left"><strong>No. Agenda</strong> : '.$row['no_agenda'].'</td>
                             </tr>
                             <tr><td id="right"><strong>Tanggal Surat</strong></td>
                                 <td id="left" colspan="2">: '.indoDate($row['tgl_surat']).'</td>
@@ -215,7 +215,7 @@
                             <tr>
                                 <td id="right"><strong>Diterima Tanggal</strong></td>
                                 <td id="left" style="border-right: none;">: '.indoDate($row['tgl_diterima']).'</td>
-                                <td id="left"><strong>No. Agenda</strong> : '.$row['no_agenda'].'</td>
+                                
                             </tr>
                             <tr>
                                 <td id="right"><strong>Tanggal Penyelesaian</strong></td>
@@ -230,14 +230,14 @@
                                 echo '
                             <tr class="isi">
                                 <td colspan="2">
-                                    <strong>Isi Disposisi :</strong><br/>'.$row['isi_disposisi'].'
+                                    <strong>Isi Disposisi :</strong><br/>'.nl2br($row['isi_disposisi']).'
                                     <div style="height: 50px;"></div>
                                     <strong>Batas Waktu</strong> : '.indoDate($row['batas_waktu']).'<br/>
                                     <strong>Sifat</strong> : '.$row['sifat'].'<br/>
-                                    <strong>Catatan</strong> :<br/> '.$row['catatan'].'
+                                    <strong>Catatan</strong> :<br/> '.nl2br($row['catatan']).'
                                     <div style="height: 25px;"></div>
                                 </td>
-                                <td><strong>Diteruskan Kepada</strong> : <br/>'.$row['tujuan'].'</td>
+                                <td><strong>Diteruskan Kepada</strong> : <br/>'.nl2br($row['tujuan']).'</td>
                             </tr>';
                                 }
                             } else {

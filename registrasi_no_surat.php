@@ -88,7 +88,7 @@ if (empty($_SESSION['admin'])) {
                 <nav class="secondary-nav">
                     <div class="nav-wrapper blue-grey darken-1">
                         <ul class="left">
-                            <li class="waves-effect waves-light"><a href="?page=rns&act=add" class="judul"><i class="material-icons">drafts</i> Tambah Data Surat Keluar</a></li>
+                            <li class="waves-effect waves-light"><a href="?page=rns&act=add" class="judul"><i class="material-icons">sort</i> Registrasi Nomor Surat</a></li>
                         </ul>
                     </div>
                 </nav>
@@ -137,7 +137,7 @@ if (empty($_SESSION['admin'])) {
 
 
                     <div class="input-field col s6">
-                        <i class="material-icons prefix md-prefix">looks_two</i>
+                        <i class="material-icons prefix md-prefix">receipt</i>
                         <input id="no_surat" type="text" class="validate" name="no_surat" required>
                         <?php
                         if (isset($_SESSION['no_suratr'])) {
@@ -168,7 +168,7 @@ if (empty($_SESSION['admin'])) {
                     </div>
 
                     <div class="input-field col s6">
-                    <i class="material-icons prefix md-prefix">date_range</i>
+                    <i class="material-icons prefix md-prefix">filter_1</i><label>Klasifikasi</label><br />
                     <div class="input-field col s12">
                             <select name="klasifikasi" id="klasifikasi" required>
                                 <option value="" disabled selected>Choose your option</option>
@@ -184,11 +184,10 @@ if (empty($_SESSION['admin'])) {
                             unset($_SESSION['klasifikasi']);
                         }
                         ?>
-                        <label for="isi">Klasifikasi</label>
                     </div>
 
                     <div class="input-field col s6">
-
+                    <i class="material-icons prefix md-prefix">filter_2</i><label>Klasifikasi 1</label><br />
                         <div class="input-field col s12">
                             <select name="klasifikasi1" id="klasifikasi1" required>
                                 <option value="" disabled selected>Choose your option</option>
@@ -205,12 +204,11 @@ if (empty($_SESSION['admin'])) {
                             unset($_SESSION['klasifikasi1']);
                         }
                         ?>
-                        <label for="isi">Klasifikasi 1</label>
                     </div>
 
                     <div class="input-field col s6">
                         <i class="material-icons prefix md-prefix">low_priority</i><label>Jenis Surat</label><br />
-                        <div class="input-field col s11 right">
+                        <div class="input-field col s12">
                             <select name="jenis_surat" id="jenis_surat" required>
                                 <?php
                                 $sql = mysqli_query($config, "SELECT nama FROM tbl_jenis");

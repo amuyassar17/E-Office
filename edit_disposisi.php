@@ -28,7 +28,7 @@
                 $id_user = $_SESSION['id_user'];
 
                 //validasi input data
-                if(!preg_match("/^[a-zA-Z0-9.,()\/ -]*$/", $tujuan)){
+                if(!preg_match("/^[a-zA-Z0-9.,_()%&@\/\r\n -]*$/", $tujuan)){
                     $_SESSION['tujuan'] = 'Form Tujuan Disposisi hanya boleh mengandung karakter huruf, angka, spasi, titik(.), koma(,) minus(-). kurung() dan garis miring(/)';
                     echo '<script language="javascript">window.history.back();</script>';
                 } else {
@@ -134,7 +134,7 @@
                             <div class="input-field col s6">
                                 <input type="hidden" value="<?php echo $row['id_disposisi'] ;?>">
                                 <i class="material-icons prefix md-prefix">account_box</i>
-                                <input id="tujuan" type="text" class="validate" name="tujuan" value="<?php echo $row['tujuan'] ;?>" required>
+                                <textarea id="tujuan" type="text" class="materialize-textarea validate" name="tujuan" value="<?php echo $row['tujuan'] ;?>" required></textarea>
                                     <?php
                                         if(isset($_SESSION['tujuan'])){
                                             $tujuan = $_SESSION['tujuan'];
@@ -143,6 +143,19 @@
                                         }
                                     ?>
                                 <label for="tujuan">Tujuan Disposisi</label>
+                            </div>
+                            
+                            <div class="input-field col s6">
+                                <i class="material-icons prefix md-prefix">description</i>
+                                <textarea id="isi_disposisi" class="materialize-textarea validate" name="isi_disposisi" required><?php echo $row['isi_disposisi'] ;?></textarea>
+                                    <?php
+                                        if(isset($_SESSION['isi_disposisi'])){
+                                            $isi_disposisi = $_SESSION['isi_disposisi'];
+                                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$isi_disposisi.'</div>';
+                                            unset($_SESSION['isi_disposisi']);
+                                        }
+                                    ?>
+                                <label for="isi_disposisi">Isi Disposisi</label>
                             </div>
                             <div class="input-field col s6">
                                 <i class="material-icons prefix md-prefix">alarm</i>
@@ -157,18 +170,6 @@
                                 <label for="batas_waktu">Batas Waktu</label>
                             </div>
                             <div class="input-field col s6">
-                                <i class="material-icons prefix md-prefix">description</i>
-                                <textarea id="isi_disposisi" class="materialize-textarea validate" name="isi_disposisi" required><?php echo $row['isi_disposisi'] ;?></textarea>
-                                    <?php
-                                        if(isset($_SESSION['isi_disposisi'])){
-                                            $isi_disposisi = $_SESSION['isi_disposisi'];
-                                            echo '<div id="alert-message" class="callout bottom z-depth-1 red lighten-4 red-text">'.$isi_disposisi.'</div>';
-                                            unset($_SESSION['isi_disposisi']);
-                                        }
-                                    ?>
-                                <label for="isi_disposisi">Isi Disposisi</label>
-                            </div>
-                            <div class="input-field col s6">
                                 <i class="material-icons prefix md-prefix">featured_play_list   </i>
                                 <input id="catatan" type="text" class="validate" name="catatan" value="<?php echo $row['catatan'] ;?>" required>
                                     <?php
@@ -180,6 +181,7 @@
                                     ?>
                                 <label for="catatan">Catatan</label>
                             </div>
+                            
                             <div class="input-field col s6">
                                 <i class="material-icons prefix md-prefix">low_priority</i><label>Pilih Sifat Disposisi</label><br/>
                                 <div class="input-field col s11 right">
