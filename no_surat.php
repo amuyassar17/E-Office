@@ -160,7 +160,7 @@
                                         echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_surat='.$row['id_surat'].'" target="_blank">
                                             <i class="material-icons">print</i> PRINT</a>';
                                     } else {
-                                      echo '<a class="btn small blue waves-effect waves-light" href="?page=rns&act=edit&id_surat='.$row['id_surat'].'">
+                                      echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_surat='.$row['id_surat'].'">
                                                 <i class="material-icons">edit</i> EDIT</a>
                                             <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_surat='.$row['id_surat'].'">
                                                 <i class="material-icons">delete</i> DEL</a>';
@@ -255,7 +255,7 @@
                                             echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_surat='.$row['id'].'" target="_blank">
                                                 <i class="material-icons">print</i> PRINT</a>';
                                         } else {
-                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=rns&act=edit&id_surat='.$row['id'].'">
+                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_surat='.$row['id'].'">
                                                     <i class="material-icons">edit</i> EDIT</a>
                                                
                                                 <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_surat='.$row['id'].'">

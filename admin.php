@@ -77,6 +77,9 @@ if (empty($_SESSION['admin'])) {
                         case 'ns':
                             include "no_surat.php";
                             break;
+                        case 'ens':
+                            include "edit_no_surat.php";
+                            break;
                     }
                 } else {
                 ?>
