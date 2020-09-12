@@ -52,12 +52,7 @@
 				                    <td width="1%">:</td>
 				                    <td width="86%">'.$row['no_agenda'].'</td>
 				                </tr>
-				                <tr>
-				                    <td width="13%">Kode jenis</td>
-				                    <td width="1%">:</td>
-				                    <td width="86%">'.$row['kode'].'</td>
-				                </tr>
-                                <td width="13%">Indeks Berkas</td>
+				                <td width="13%">Indeks Berkas</td>
                                 <td width="1%">:</td>
                                 <td width="86%">'.$row['indeks'].'</td>
                                 </tr>
@@ -92,9 +87,9 @@
     			                    <td width="86%">'.indoDate($row['tgl_surat']).'</td>
     			                </tr>
                                 <tr>
-                                    <td width="13%">Keterangan</td>
+                                    <td width="13%">Jenis Surat</td>
                                     <td width="1%">:</td>
-                                    <td width="86%">'.$row['keterangan'].'</td>
+                                    <td width="86%">'.$row['jenis_surat'].'</td>
                                 </tr>
     			            </tbody>
     			   		</table>
