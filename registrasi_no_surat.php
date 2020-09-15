@@ -126,6 +126,24 @@ if (empty($_SESSION['admin'])) {
         }
         ?>
 
+        <script>
+        function showHint(str) {
+        if (str.length == 0) {
+            document.getElementById("txtHint").innerHTML = "";
+            return;
+        } else {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+            }
+            xmlhttp.open("GET", "gethint.php?q="+str, true);
+            xmlhttp.send();
+        }
+        }
+        </script>
+
         <!-- Row form Start -->
         <div class="row jarak-form">
 
@@ -172,11 +190,12 @@ if (empty($_SESSION['admin'])) {
                     <div class="input-field col s12">
                             <select name="klasifikasi" id="klasifikasi" required>
                                 <option value="" disabled selected>Choose your option</option>
-                                <option value="Option 1">Option 1</option>
-                                <option value="Option 2">Option 2</option>
-                                <option value="Option 3">Option 3</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
                             </select>
                     </div>
+                   
                         <?php
                         if (isset($_SESSION['klasifikasi'])) {
                             $klasifikasi = $_SESSION['klasifikasi'];
@@ -191,9 +210,9 @@ if (empty($_SESSION['admin'])) {
                         <div class="input-field col s12">
                             <select name="klasifikasi1" id="klasifikasi1" required>
                                 <option value="" disabled selected>Choose your option</option>
-                                <option value="Option 1">Option 1</option>
-                                <option value="Option 2">Option 2</option>
-                                <option value="Option 3">Option 3</option>
+                                <option value="1">Option 1</option>
+                                <option value="2">Option 2</option>
+                                <option value="3">Option 3</option>
                             </select>
 
                         </div>

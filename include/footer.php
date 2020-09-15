@@ -34,6 +34,31 @@
 <script type="text/javascript" src="asset/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="asset/js/jquery.autocomplete.min.js"></script>
 <!-- <script data-pace-options='{ "ajax": false }' src='asset/js/pace.min.js'></script> -->
+<script>
+                        $("#klasifikasi").on("change",function(){
+                            let kla = $("#klasifikasi").val() 
+                            let kla1 = ($("#klasifikasi1").val() ? $("#klasifikasi1").val() : '' )
+                            let tanggal = $("#tgl_surat").val();
+                            let date  = tanggal.split("-",2);
+                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                        })
+                        $("#klasifikasi1").on("change",function(){
+                            let kla = $("#klasifikasi").val() 
+                            let kla1 = $("#klasifikasi1").val()
+                            let tanggal = $("#tgl_surat").val();
+                            let date  = tanggal.split("-",2);
+                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                        })
+                        $("#tgl_surat").on("change",function(){
+                            let kla = $("#klasifikasi").val() 
+                            let kla1 = $("#klasifikasi1").val()
+
+                            let tanggal = $("#tgl_surat").val();
+                            let date  = tanggal.split("-",2);
+                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                          
+                        })
+                    </script>
 <script type="text/javascript">
 $(document).ready(function(){
     //jquery dropdown
