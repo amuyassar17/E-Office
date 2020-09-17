@@ -40,22 +40,33 @@
                             let kla1 = ($("#klasifikasi1").val() ? $("#klasifikasi1").val() : '' )
                             let tanggal = $("#tgl_surat").val();
                             let date  = tanggal.split("-",2);
-                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                            let jenis = $("#jenis_surat").val()
+                            $("#no_surat").val(kla+"/"+kla1+"/"+jenis+"-"+date[0]+"-"+date[1]);
                         })
                         $("#klasifikasi1").on("change",function(){
                             let kla = $("#klasifikasi").val() 
                             let kla1 = $("#klasifikasi1").val()
                             let tanggal = $("#tgl_surat").val();
                             let date  = tanggal.split("-",2);
-                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                            let jenis = $("#jenis_surat").val()
+                            $("#no_surat").val(kla+"/"+kla1+"/"+jenis+"-"+date[0]+"-"+date[1]);
                         })
                         $("#tgl_surat").on("change",function(){
                             let kla = $("#klasifikasi").val() 
                             let kla1 = $("#klasifikasi1").val()
-
+                            let jenis = $("#jenis_surat").val()
                             let tanggal = $("#tgl_surat").val();
                             let date  = tanggal.split("-",2);
-                            $("#no_surat").val(kla+"/"+kla1+"/"+date[0]+"-"+date[1]);
+                            $("#no_surat").val(kla+"/"+kla1+"/"+jenis+"-"+date[0]+"-"+date[1]);
+                          
+                        })
+                        $("#jenis_surat").on("change",function(){
+                            let kla = $("#klasifikasi").val() 
+                            let kla1 = $("#klasifikasi1").val()
+                            let jenis = $("#jenis_surat").val()
+                            let tanggal = $("#tgl_surat").val();
+                            let date  = tanggal.split("-",2);
+                            $("#no_surat").val(kla+"/"+kla1+"/"+jenis+"-"+date[0]+"-"+date[1]);
                           
                         })
                     </script>

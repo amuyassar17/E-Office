@@ -144,7 +144,7 @@
                             <tbody>';
 
                             //script untuk mencari data
-                            $query = mysqli_query($config, "SELECT * FROM tbl_no_surat WHERE no_surat LIKE '%$cari%' ORDER by id DESC LIMIT 15");
+                            $query = mysqli_query($config, "SELECT * FROM tbl_no_surat WHERE no_surat LIKE '%$cari%' ORDER by id_ns DESC LIMIT 15");
                             if(mysqli_num_rows($query) > 0){
                                 $no = 1;
                                 while($row = mysqli_fetch_array($query)){
@@ -157,12 +157,12 @@
                                     <td>';
 
                                     if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
-                                        echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_surat='.$row['id_surat'].'" target="_blank">
+                                        echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_ns='.$row['id_ns'].'" target="_blank">
                                             <i class="material-icons">print</i> PRINT</a>';
                                     } else {
-                                      echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_surat='.$row['id_surat'].'">
+                                      echo '<a class="btn small blue waves-effect waves-light" href="?page=ns&act=edit&id_ns='.$row['id_ns'].'">
                                                 <i class="material-icons">edit</i> EDIT</a>
-                                            <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_surat='.$row['id_surat'].'">
+                                            <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_ns='.$row['id_ns'].'">
                                                 <i class="material-icons">delete</i> DEL</a>';
                                     } echo '
                                         </td>
@@ -217,12 +217,12 @@
                                                                     <button type="submit" class="modal-action waves-effect waves-green btn-flat" name="simpan">Simpan</button>';
                                                                     if(isset($_REQUEST['simpan'])){
                                                                         $id_sett = "1";
-                                                                        $no_surat = $_REQUEST['no_surat'];
+                                                                        $no_surat = $_REQUEST[''];
                                                                         $id_user = $_SESSION['id_user'];
 
                                                                         $query = mysqli_query($config, "UPDATE tbl_sett SET no_surat='$no_surat',id_user='$id_user' WHERE id_sett='$id_sett'");
                                                                         if($query == true){
-                                                                            header("Location: ./admin.php?page=rns");
+                                                                            header("Location: ./admin.php?page=ns");
                                                                             die();
                                                                         }
                                                                     } echo '
@@ -239,7 +239,7 @@
                                 <tbody>';
 
                                 //script untuk menampilkan data
-                                $query = mysqli_query($config, "SELECT * FROM tbl_nomor_surat ORDER by id DESC LIMIT $curr, $limit");
+                                $query = mysqli_query($config, "SELECT * FROM tbl_nomor_surat ORDER by id_ns DESC LIMIT $curr, $limit");
                                 if(mysqli_num_rows($query) > 0){
                                     $no = 1;
                                     while($row = mysqli_fetch_array($query)){
@@ -252,13 +252,13 @@
                                         <td>';
 
                                         if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
-                                            echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_surat='.$row['id'].'" target="_blank">
+                                            echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_ns='.$row['id_ns'].'" target="_blank">
                                                 <i class="material-icons">print</i> PRINT</a>';
                                         } else {
-                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_surat='.$row['id'].'">
+                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_ns='.$row['id_ns'].'">
                                                     <i class="material-icons">edit</i> EDIT</a>
                                                
-                                                <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_surat='.$row['id'].'">
+                                                <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_ns='.$row['id_ns'].'">
                                                     <i class="material-icons">delete</i> DEL</a>';
                                         } echo '
                                         </td>
@@ -271,9 +271,10 @@
                         </div>
                     </div>
                     <!-- Row form END -->';
-
-                    $query = mysqli_query($config, "SELECT * FROM tbl_no_surat");
+                    $i = "SELECT * FROM tbl_nomor_surat";
+                    $query = mysqli_query($config, $i);
                     $cdata = mysqli_num_rows($query);
+                    
                     $cpg = ceil($cdata/$limit);
 
                     echo '<br/><!-- Pagination START -->

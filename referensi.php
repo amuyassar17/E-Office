@@ -220,8 +220,8 @@
                                                                         <button type="submit" class="modal-action waves-effect waves-green btn-flat" name="simpan">Simpan</button>';
                                                                         if(isset($_REQUEST['simpan'])){
                                                                             $id_sett = "1";
-                                                                            $referensi = $_REQUEST['referensi'];                                                                    $id_user = $_SESSION['id_user'];
-
+                                                                            $referensi = $_REQUEST['referensi'];                                                                    
+                                                                            $id_user = $_SESSION['id_user'];
                                                                             $query = mysqli_query($config, "UPDATE tbl_sett SET referensi='$referensi',id_user='$id_user' WHERE id_sett='$id_sett'");
                                                                             if($query == true){
                                                                                 header("Location: ./admin.php?page=ref");
