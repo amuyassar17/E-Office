@@ -61,7 +61,7 @@ if (empty($_SESSION['admin'])) {
                                 $a = "UPDATE tbl_nomor_surat SET no_surat='$no_surat', tgl_surat='$tgl_surat', klasifikasi='$klasifikasi', klasifikasi1='$klasifikasi1', jenis_surat='$jenis_surat', id_user='$id_user' WHERE id_ns='$id_ns'";
                                 $query = mysqli_query($config, $a);
 
-                                if ($query != false) {
+                                if ($query == true) {
                                     $_SESSION['succEdit'] = 'SUKSES! Data berhasil diupdate';
                                     header("Location: ./admin.php?page=ns");
                                     die();

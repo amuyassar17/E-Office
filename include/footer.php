@@ -69,6 +69,17 @@
                             $("#no_surat").val(kla+"/"+kla1+"/"+jenis+"-"+date[0]+"-"+date[1]);
                           
                         })
+                        $(document).on("change","#no_suratk",function(){
+                            var jenis = $(this).find(':selected').attr('data-jenis')
+                            var tgl = $(this).find(':selected').attr('data-tgl')
+                            // alert(jenis);
+                            $("#jenis_surat").val(jenis);
+                            $("#tgl_suratk").val(tgl);
+                            // console.log(jenis);
+                          
+                        })
+                        
+                        
                     </script>
 <script type="text/javascript">
 $(document).ready(function(){
