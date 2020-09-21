@@ -257,7 +257,7 @@ if (empty($_SESSION['admin'])) {
                             unset($_SESSION['tgl_suratk']);
                         }
                         ?>
-                        <label for="tgl_surat">Tanggal Surat</label>
+                        <label class="active" for="tgl_surat">Tanggal Surat</label>
                     </div>
 
                     <div class="input-field col s6">
@@ -306,7 +306,7 @@ if (empty($_SESSION['admin'])) {
                             unset($_SESSION['jenis_suratk']);
                         }
                         ?>
-                        <label for="jenis_surat">Jenis Surat</label>
+                        <label class="active" for="jenis_surat">Jenis Surat</label>
                     </div>
                 </div>
                 <!-- Row in form END -->

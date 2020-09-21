@@ -72,10 +72,13 @@
                         $(document).on("change","#no_suratk",function(){
                             var jenis = $(this).find(':selected').attr('data-jenis')
                             var tgl = $(this).find(':selected').attr('data-tgl')
+                            var nomor = $(this).find(':selected').attr('value')
+
                             // alert(jenis);
                             $("#jenis_surat").val(jenis);
                             $("#tgl_suratk").val(tgl);
-                            // console.log(jenis);
+                            if (nomor == 'dasdasd')
+                            alert('nomor telah digunakan');
                           
                         })
                         

@@ -156,7 +156,7 @@ if (empty($_SESSION['admin'])) {
 
                     <div class="input-field col s6">
                         <i class="material-icons prefix md-prefix">receipt</i>
-                        <input id="no_surat" type="text" class="validate" name="no_surat" required>
+                        <input id="no_surat" type="text" class="validate" name="no_surat" readonly required>
                         <?php
                         if (isset($_SESSION['no_suratr'])) {
                             $no_suratr = $_SESSION['no_suratr'];
@@ -169,7 +169,7 @@ if (empty($_SESSION['admin'])) {
                             unset($_SESSION['errDup']);
                         }
                         ?>
-                        <label for="no_surat">Nomor Surat</label>
+                        <label class="active" for="no_surat">Nomor Surat</label>
                     </div>
 
                     <div class="input-field col s6">
