@@ -71,12 +71,12 @@
                                     } else {
 
                                         if(!preg_match("/^[a-zA-Z., ]*$/", $pimpinan)){
-                                            $_SESSION['pimpinan'] = 'Form Nama Kepala Sekolah hanya boleh mengandung karakter huruf, spasi, titik(.) dan koma(,)<br/><br/>';
+                                            $_SESSION['pimpinan'] = 'Form Nama Rektor hanya boleh mengandung karakter huruf, spasi, titik(.) dan koma(,)<br/><br/>';
                                             echo '<script language="javascript">window.history.back();</script>';
                                         } else {
 
                                             if(!preg_match("/^[0-9 -]*$/", $nip)){
-                                                $_SESSION['nippimpinan'] = 'Form NIP Kepala Sekolah hanya boleh mengandung karakter angka, spasi, dan minus(-)<br/><br/>';
+                                                $_SESSION['nippimpinan'] = 'Form NIP Rektor hanya boleh mengandung karakter angka, spasi, dan minus(-)<br/><br/>';
                                                 echo '<script language="javascript">window.history.back();</script>';
                                             } else {
 
@@ -305,7 +305,7 @@
                                                     unset($_SESSION['nippimpinan']);
                                                 }
                                             ?>
-                                        <label for="nip">NIP Kepala Sekolah</label>
+                                        <label for="nip">NIP Rektor</label>
                                     </div>
                                     <div class="input-field col s6">
                                         <i class="material-icons prefix md-prefix">language</i>
