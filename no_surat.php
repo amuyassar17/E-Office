@@ -19,9 +19,6 @@
                     case 'add':
                         include "registrasi_no_surat.php";
                         break;
-                    case 'edit':
-                        include "edit_no_surat.php";
-                        break;
                     case 'del':
                         include "hapus_no_surat.php";
                         break;
@@ -160,9 +157,7 @@
                                         echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_ns='.$row['id_ns'].'" target="_blank">
                                             <i class="material-icons">print</i> PRINT</a>';
                                     } else {
-                                      echo '<a class="btn small blue waves-effect waves-light" href="?page=ns&act=edit&id_ns='.$row['id_ns'].'">
-                                                <i class="material-icons">edit</i> EDIT</a>
-                                            <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_ns='.$row['id_ns'].'">
+                                      echo '<a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_ns='.$row['id_ns'].'">
                                                 <i class="material-icons">delete</i> DEL</a>';
                                     } echo '
                                         </td>
@@ -255,10 +250,7 @@
                                             echo '<a class="btn small yellow darken-3 waves-effect waves-light" href="?page=ctk&id_ns='.$row['id_ns'].'" target="_blank">
                                                 <i class="material-icons">print</i> PRINT</a>';
                                         } else {
-                                          echo '<a class="btn small blue waves-effect waves-light" href="?page=ens&act=edit&id_ns='.$row['id_ns'].'">
-                                                    <i class="material-icons">edit</i> EDIT</a>
-                                               
-                                                <a class="btn small deep-orange waves-effect waves-light" href="?page=rns&act=del&id_ns='.$row['id_ns'].'">
+                                          echo '<a class="btn small deep-orange waves-effect waves-light" href="?page=ns&act=del&id_ns='.$row['id_ns'].'">
                                                     <i class="material-icons">delete</i> DEL</a>';
                                         } echo '
                                         </td>

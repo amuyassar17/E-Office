@@ -60,7 +60,7 @@ if (empty($_SESSION['admin'])) {
                                         echo '<script language="javascript">window.history.back();</script>';
                                     } else {
 
-                                            $cek = mysqli_query($config, "SELECT * FROM tbl_surat_masuk WHERE no_suratm='$no_suratm'");
+                                            $cek = mysqli_query($config, "SELECT no_suratm FROM tbl_surat_masuk WHERE no_suratm='$no_suratm'");
                                             $result = mysqli_num_rows($cek);
 
                                             if ($result > 0) {
@@ -100,7 +100,7 @@ if (empty($_SESSION['admin'])) {
                                                                 header("Location: ./admin.php?page=tsm");
                                                                 die();
                                                             } else {
-                                                                $_SESSION['errQ'] = 'ERROR! Ada masalah dengan queryyyyyyyyy';
+                                                                $_SESSION['errQ'] = 'ERROR! Ada masalah dengan query';
                                                                 echo '<script language="javascript">window.history.back();</script>';
                                                             }
                                                         } else {

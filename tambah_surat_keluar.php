@@ -60,7 +60,7 @@ if (empty($_SESSION['admin'])) {
                             } else {
 
                                
-                                    $cek = mysqli_query($config, "SELECT * FROM tbl_surat_keluar WHERE no_surat='$no_surat'");
+                                    $cek = mysqli_query($config, "SELECT no_surat FROM tbl_surat_keluar WHERE no_surat='$no_surat'");
                                     $result = mysqli_num_rows($cek);
 
                                     if ($result > 0) {
