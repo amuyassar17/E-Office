@@ -165,7 +165,7 @@
                                         echo '<em>Tidak ada file yang di upload</em>';
                                     } echo '</td>
                                     <td>'.$row['asal_surat'].'</td>
-                                    <td>'.$row['no_surat'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
+                                    <td>'.$row['no_suratm'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
                                     <td>';
 
                                     if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
@@ -269,7 +269,7 @@
                                             echo '<em>Tidak ada file yang di upload</em>';
                                         } echo '</td>
                                         <td>'.$row['asal_surat'].'</td>
-                                        <td>'.$row['no_surat'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
+                                        <td>'.$row['no_suratm'].'<br/><hr/>'.indoDate($row['tgl_surat']).'</td>
                                         <td>';
 
                                         if($_SESSION['id_user'] != $row['id_user'] AND $_SESSION['id_user'] != 1){
