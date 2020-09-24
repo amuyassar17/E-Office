@@ -46,7 +46,7 @@
                                                     <tr>
                                                         <td width="13%">No. Surat</td>
                                                         <td width="1%">:</td>
-                                                        <td width="86%">'.$row['no_surat'].'</td>
+                                                        <td width="86%">'.$row['no_suratm'].'</td>
                                                     </tr>
                                                     <tr>
                                                         <td width="13%">Tanggal Surat</td>
