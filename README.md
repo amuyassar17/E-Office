@@ -20,4 +20,5 @@ Inspired by Nur Akhwam.
 
 ---
 
-Ini adalah source code dari postingan https://masrud.com/post/aplikasi-manajemen-surat-php-mysqli
+
+Sourcode awal by masrud.com
